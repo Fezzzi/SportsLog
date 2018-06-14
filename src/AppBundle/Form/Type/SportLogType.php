@@ -4,6 +4,7 @@ namespace AppBundle\Form\Type;
 
 use AppBundle\Entity\SportLog;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,7 +23,7 @@ class SportLogType extends AbstractType
             ->add('sport', TextType::class)
             ->add('user_id', IntegerType::class)
             ->add('image', FileType::class)
-            ->add('points', IntegerType::class)
+            ->add('points', NumberType::class)
             ->add('date', DateTimeType::class)
         ;
     }

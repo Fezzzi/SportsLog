@@ -112,16 +112,16 @@ class SportLogController extends HelperController
         $sport_choices = $this->getDoctrine()->getRepository('AppBundle:Sport')->findAll();
         $sportLogs = $this->getDoctrine()->getRepository('AppBundle:SportLog')->findBy(array("user_id" => $this->getUser()->getId()),array('id' => 'DESC'));
         $uncompleted_challenges = [];
+        $uncompleted_sports = [];
         $challenge_choices = [];
-        $index = 0;
+        foreach ($sport_choices as $sport){
+            $uncompleted_sports[$sport->getId()] = $sport -> getMultiplier();
+        }
         foreach($chal_choices as $challenge) {
-            if ($index < count($sportLogs) && $challenge->getId() == $sportLogs[$index]->getId()) {
-                ++$index;
-            }
-            else
-                $uncompleted_challenges[$challenge->getId()] = $challenge->getPoints();
+            $uncompleted_challenges[$challenge->getId()] = $challenge->getPoints();
             $challenge_choices[$challenge->getId()] = $challenge;
         }
+
 
         $images = array();
         foreach ($sportLogs as $key => $dat) {
@@ -139,6 +139,7 @@ class SportLogController extends HelperController
             'challenge_choices' => $challenge_choices,
             'sport_choices' => $sport_choices,
             'uncompleted_challenges' => $uncompleted_challenges,
+            'uncompleted_sports' => $uncompleted_sports,
             'sport_logs' => $sportLogs,
             'achvs_update_data' => $this->getAchvUpdateData($sportLogs, $this->getUser()->getId()),
             'leaderboard' => $this->getLeaders(),

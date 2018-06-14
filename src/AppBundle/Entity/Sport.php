@@ -25,6 +25,14 @@ class Sport
     protected $name;
 
     /**
+     * @Assert\NotBlank(message="How challenging is this sport?")
+     * @Assert\GreaterThan(value=0, message="Really? That Easy?!")
+     * @Assert\LessThan(value=10, message="It can't be that hard!")
+     * @ORM\Column(name="multiplier", type="decimal", precision=1)
+     */
+    protected $multiplier;
+
+    /**
      * @Assert\NotBlank(message="Let's describe the sport a bit!")
      * @ORM\Column(name="description", type="string", length=1000)
      */
@@ -89,4 +97,21 @@ class Sport
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMultiplier()
+    {
+        return $this->multiplier;
+    }
+
+    /**
+     * @param mixed $multiplier
+     */
+    public function setMultiplier($multiplier)
+    {
+        $this->multiplier = $multiplier;
+    }
+
 }

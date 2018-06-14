@@ -117,10 +117,11 @@
         $(document).ready(function() {
             let $wrapper = $('.js-new-sport-log-form');
             let $outer = $('.js-new-sport-log-form-wrapper');
-            let $uncompchallenges = {{ uncompleted_challenges|json_encode|raw }};
+            let $challenges = {{ uncompleted_challenges|json_encode|raw }};
+            let $sports = {{ uncompleted_sports|json_encode|raw }};
             let $achvsUpdateData = {{ achvs_update_data|json_encode|raw }};
             let $leaderBoardData = {{ leaderboard|json_encode|raw }};
-            let sportLogApp = new SportLogApp($wrapper, $outer, $uncompchallenges, $achvsUpdateData, $leaderBoardData, {{ app.user.id }});
+            let sportLogApp = new SportLogApp($wrapper, $outer, $challenges, $sports, $achvsUpdateData, $leaderBoardData, {{ app.user.id }});
         });
     </script>
 

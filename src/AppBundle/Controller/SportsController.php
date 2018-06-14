@@ -76,7 +76,7 @@ class SportsController extends HelperController
         ]);
 
         $form->submit($data);
-
+        dump($form);
         if (!$form->isValid()) {
             $errors = $this->getErrorsFromForm($form);
             return $this->createApiResponse([

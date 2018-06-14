@@ -85,10 +85,9 @@ class SportLog
     private $challenge;
 
     /**
-     * @var float
      *
      * @Serializer\Groups({"Default"})
-     * @ORM\Column(name="points", type="integer")
+     * @ORM\Column(name="points", type="decimal", precision=1)
      */
     private $points;
 

@@ -3,12 +3,13 @@
 (function(window, $, Routing, swal) {
 
     class SportLogApp {
-        constructor($wrapper, $outer, $uncompChallenges, $updateAchvsData, $leaderboardData, $userId) {
+        constructor($wrapper, $outer, $Challenges, $Sports, $updateAchvsData, $leaderboardData, $userId) {
             this.ROWS = 10;
             this.$form = $wrapper;
             this.$leaderboard = $('.leaderboard');
             this.$wrapper = $outer;
-            this.openChallenges = $uncompChallenges;
+            this.openChallenges = $Challenges;
+            this.openSports = $Sports;
             this.updateAchvsData = $updateAchvsData;
             this.leaderboardData = $leaderboardData;
             this.userId = $userId;
@@ -150,10 +151,11 @@
             let self = this;
             for (let element of $pointElements) {
                 if(element.dataset.pts !== undefined) {
-                    points += parseInt(element.dataset.pts);
+                    points += parseFloat(element.dataset.pts);
                     ++challenges;
                 }
             }
+            points = points.toFixed(2);
             for(let $user of this.leaderboardData)
                 if($user.id === this.userId){
                     $user.points = points.toString();
@@ -279,17 +281,16 @@
             formData['image'] = document.getElementById("add-img").dataset.img;
             if(formData['image'] === "")
                 formData['image'] = null;
-            if(this.openChallenges[formData['challengeId']])
-                formData['points'] = this.openChallenges[formData['challengeId']];
-            else
-                formData['points'] = 0;
+
+            formData['points'] = this.openChallenges[formData['challengeId']] * this.openSports[formData['sportId']];
+            console.log(this.openChallenges[formData['challengeId']], '*', this.openSports[formData['sportId']]);
+            console.log(formData);
 
             this._saveSportLog(formData)
             .then((data) => {
                 this._clearForm();
                 formData['id'] = data['id'];
                 for (let fieldData of $form) {
-                    console.log(fieldData);
                     formData[fieldData.name] = fieldData.value.split(':')[1];
                 }
                 this._addRow(formData);
@@ -419,6 +420,7 @@
             $leaderboard.find('.leaderboard-table-hover').addClass('leaderboard-table-leaders');
         for (let i = 0; i < ROWS && (page * ROWS) + i < $data.length; ++i){
             let leader = $data[(page * ROWS) + i];
+            leader.points = parseFloat(leader.points).toFixed(1);
             string +=
             '<tr class="js-leaderboard-row clickable-row" data-id="' + leader.id + '" data-href="' +
             Routing.generate('profile_visit', {'id': leader.id}) + '">' +

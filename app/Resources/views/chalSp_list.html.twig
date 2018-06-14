@@ -41,9 +41,9 @@
                                 <span class="js-show-detail"
                                       data-compNum="0"
                                       {% if entity.points is defined %}
-                                        data-pts="{{ entity.points }}"
+                                        data-pts="{{ entity.points }}" data-multiply="undefined"
                                       {% else %}
-                                        data-pts="undefined"
+                                        data-multiply="{{ entity.multiplier }}"  data-pts="undefined"
                                       {% endif %}
                                       data-id="{{ entity.id }}"
                                       data-detail="{{ entity.description }}"
