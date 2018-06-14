@@ -4,9 +4,7 @@
 }
 
 .form-signin {
-  max-width: 420px;
-  width: 420px;
-  padding: 30px 38px 66px;
+  padding: 50px 50px 50px 50px;
   margin: 0 auto;
   background-color: #eee;
   border: 3px dotted #cbcbcb;

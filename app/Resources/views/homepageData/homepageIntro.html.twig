@@ -27,7 +27,7 @@
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ path('sports') }}">
                     {% endif %}
-                    <img src="{{ asset('assets/images/positions.png') }}" height="150" width="150" onerror="imageError(this)"
+                    <img src="{{ asset('assets/images/sports.png') }}" height="150" width="150" onerror="imageError(this)"
                          class="img-circle {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} my-img-style {% else %} my-img-style-static
                             {% endif %}">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -44,7 +44,7 @@
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ path('sport_logs') }}">
                     {% endif %}
-                    <img src="{{ asset('assets/images/love.png') }}" height="150" width="150" onerror="imageError(this)"
+                    <img src="{{ asset('assets/images/log.png') }}" height="150" width="150" onerror="imageError(this)"
                          class="img-circle {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} my-img-style {% else %} my-img-style-static
                             {% endif %}">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
