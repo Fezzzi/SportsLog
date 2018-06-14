@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="052cb570-7029-4d78-a42e-049f0935cb06" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/images/sportLogNav.png" afterPath="$PROJECT_DIR$/web/assets/images/sportLogNav.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/_ChalSpform.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/_ChalSpform.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/chalSp_list.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/chalSp_list.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/sportLogs/sportLog.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/sportLogs/sportLog.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/SportLogController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/SportLogController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/SportsController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/SportsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Sport.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Sport.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/SportLog.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/SportLog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/Type/SportLogType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/Type/SportLogType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/Type/SportType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/Type/SportType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/ChalSpListApp.js" afterPath="$PROJECT_DIR$/web/assets/js/ChalSpListApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/ChalSpLogApp.js" afterPath="$PROJECT_DIR$/web/assets/js/ChalSpLogApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/SportLogApp.js" afterPath="$PROJECT_DIR$/web/assets/js/SportLogApp.js" />
-    </list>
+    <list default="true" id="052cb570-7029-4d78-a42e-049f0935cb06" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/web/assets/js/SportLogApp.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="236">
-              <caret line="422" column="65" lean-forward="true" selection-start-line="422" selection-start-column="12" selection-end-line="422" selection-end-column="65" />
+              <caret line="422" column="65" lean-forward="false" selection-start-line="422" selection-start-column="12" selection-end-line="422" selection-end-column="65" />
               <folding>
                 <marker date="1529006906841" expanded="true" signature="4162:4204" ph="..." />
                 <marker date="1529006906841" expanded="true" signature="13609:14848" ph="..." />
@@ -892,12 +877,12 @@
       <workItem from="1528279095416" duration="3886000" />
       <workItem from="1528286377010" duration="30244000" />
       <workItem from="1528751808029" duration="19412000" />
-      <workItem from="1528898468774" duration="34384000" />
+      <workItem from="1528898468774" duration="34982000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337142000" />
+    <option name="totallyTimeSpent" value="337740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1429,7 +1414,7 @@
     <entry file="file://$PROJECT_DIR$/web/assets/js/SportLogApp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
-          <caret line="422" column="65" lean-forward="true" selection-start-line="422" selection-start-column="12" selection-end-line="422" selection-end-column="65" />
+          <caret line="422" column="65" lean-forward="false" selection-start-line="422" selection-start-column="12" selection-end-line="422" selection-end-column="65" />
           <folding>
             <marker date="1529006906841" expanded="true" signature="4162:4204" ph="..." />
             <marker date="1529006906841" expanded="true" signature="13609:14848" ph="..." />
