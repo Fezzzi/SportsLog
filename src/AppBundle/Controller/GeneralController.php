@@ -51,10 +51,10 @@ class GeneralController extends HelperController
             }
             else {
                 $child->vars['label_attr']['class'] = 'sr-only';
-                $child->vars['attr']['placeholder'] = $child->vars['name'];
+                if($child->vars['name'] != "_token")
+                	$child->vars['attr']['placeholder'] = $child->vars['name'];
             }
         }
-        $form->vars['attr']['placeholder'] = $form->vars['name'];
 
         $data = $this->getData($request);
 

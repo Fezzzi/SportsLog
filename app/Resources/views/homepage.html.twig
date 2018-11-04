@@ -28,12 +28,11 @@
         </div>
 
         {% if not(is_granted("IS_AUTHENTICATED_REMEMBERED")) %}
-            <div style="width: 100%">
-                <table width="100%" style="margin-top: 50px; overflow: auto">
+            <div style="width: 100%; overflow: auto">
+                <table style="margin-top: 50px; width: 100%">
                     <tr class="js-login-register-wrapper">
-                        <td class="js-login-wrapper" valign="top"
-                            style="margin-right: 20px; padding-right: 20px"
-                            {% if(regErrors|length > 0) %} width="33%" {% else %} width="66%" {% endif %}>
+                        <td class="js-login-wrapper" style="margin-right: 20px; padding-right: 20px; vertical-align: top;
+                            {% if(regErrors|length > 0) %} width: 33%; {% else %} width: 66%; {% endif %}">
                             <div class="pull-right" style="width: 60%">
                                 {% if(regErrors|length > 0) %}
                                     <span class="h3 pull-up pull-right js-headline" style="color: Gray">Login</span>
@@ -46,12 +45,9 @@
                                 </div>
                             </div>
                         </td>
-                        <td width="4px" class="js-vertival-line"
-                            style="border-left: 4px solid black">
-
-                        </td>
-                        <td class="js-register-wrapper" valign="top"
-                            style="padding-left: 14px; margin-left: 14px">
+                        <td class="js-vertival-line" style="border-left: 4px solid black; width: 4px"></td>
+                        <td class="js-register-wrapper"
+                            style="padding-left: 14px; margin-left: 14px; vertical-align: top">
                             <div class="pull-left" style="width: 60%">
                                 {% if(regErrors|length > 0) %}
                                     <span class="h2 pull-up pull-left js-headline" style="color: Black">Register</span>

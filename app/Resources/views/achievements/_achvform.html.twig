@@ -1,8 +1,8 @@
 <form class="form-inline js-new-achievement-log-form" novalidate data-url="{{ path('achievement_new') }}"
         style="margin-bottom: 50px; width: 100%;">
-    <table align="left" style="width:100%; margin-bottom: 50px">
+    <table style="width:100%; margin-bottom: 50px">
         <tr style="width: 100%">
-            <td width="32%">
+            <td style="width: 32%">
                 <table>
                     <tr>
                         <td>
@@ -12,7 +12,7 @@
                                 </a>
                             </div>
                         </td>
-                        <td width="100%">
+                        <td style="width: 100%">
                             <div id="js-chal-req" style="white-space:nowrap; width: 100%">
                                 <div class="form-group" style="width:50%">
                                     <select name="challenge"
@@ -31,10 +31,11 @@
                                         Set Challenge's Count
                                     </label>
                                     <input type="number" name="challenge_count"
+                                           id="challenge_count"
                                            required="required"
                                            placeholder="#"
-                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                           maxlength = "2"
+                                           oninput="javascript: if (this.value.length > 2 || this.value < 0) this.value = Math.abs(this.value.slice(0, 2));"
+                                           max="99" min="0"
                                            class="form-control form-pos-field"
                                            style="width: 3.5em; margin-left: 1px"/>
                                 </div>
@@ -46,9 +47,9 @@
                             <div id="js-chal-req-adds"></div>
                         </td>
                     </tr>
-                    <tr style="height: 50px"></tr>
                     <tr>
                         <td>
+                            <br>
                             <div class="form-group" style="margin-right: 25px">
                                 <a class="btn btn-login js-new-achievement-sport-req form-pos-field">
                                     <span class="fa fa-plus"></span>
@@ -56,6 +57,7 @@
                             </div>
                         </td>
                         <td>
+                            <br>
                             <div id="js-sp-req" style="white-space:nowrap;">
                                 <div class="form-group" style="width: 50%;">
                                     <select name="sport"
@@ -73,8 +75,8 @@
                                     <input type="number" name="sport_count"
                                            required="required"
                                            placeholder="#"
-                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                           maxlength = "2"
+                                           oninput="javascript: if (this.value.length > 2 || this.value < 0) this.value = Math.abs(this.value.slice(0, 2));"
+                                           max="99" min="0"
                                            class="form-control form-pos-field"
                                            style="width: 3.5em; margin-left: 1px"/>
                                 </div>
@@ -88,10 +90,10 @@
                     </tr>
                 </table>
             </td>
-            <td width="36%" align="center" class="js-achv-middle" style="vertical-align: middle">
+            <td class="js-achv-middle" style="vertical-align: middle; width: 36%; text-align: center">
                 <span>
                     <a class="btn fa fa-caret-left fa-2x" style="margin-right: 15px"></a>
-                    <img src="{{ asset('assets/images/achievementbronze.png') }}" onerror="imageError(this)"
+                    <img alt="achievement" src="{{ asset('assets/images/achievementbronze.png') }}" onerror="imageError(this)"
                          class="img-circle my-img-style-static" width="200" height="200">
                     <a class="btn fa fa-caret-right fa-2x" style="margin-left: 15px"></a>
                 </span>
@@ -106,10 +108,10 @@
                 </div>
                 <span class="js-field-error help-block js-sp-error"></span>
             </td>
-            <td width="32%">
+            <td style="width: 32%">
                 <table>
                     <tr>
-                        <td align="right">
+                        <td style="text-align: right">
                             <div id="js-chalsp-req" style="white-space:nowrap; margin-right: 0">
                                 <a id="js-delete-chalsp-req" hidden>
                                     <span class="btn fa fa-times form-control form-pos-field no-shadow pull-left"
@@ -150,9 +152,9 @@
                             </div>
                         </td>
                     </tr>
-                    <tr style="height: 50px"></tr>
                     <tr>
-                        <td align="right">
+                        <td style="text-align: right">
+                            <br>
                             <div id="js-ach-req" style="white-space:nowrap; margin-left: 0">
                                 <a id="js-delete-ach-req" hidden>
                                     <span class="btn fa fa-times form-control form-pos-field no-shadow pull-left"
@@ -174,6 +176,7 @@
                             <div id="js-ach-req-adds"></div>
                         </td>
                         <td>
+                            <br>
                             <div class="form-group" style="margin-right: 25px">
                                 <a class="btn btn-login js-new-achievement-achievement-req form-pos-field">
                                     <span class="fa fa-plus"></span>
@@ -186,5 +189,5 @@
         </tr>
     </table>
 
-    <input type="file" name="file" id="file" class="inputFile" onchange="readURL(this);" />
+    <input type="file" name="file" id="file" class="inputFile" style="display: none" onchange="readURL(this);" />
 </form>

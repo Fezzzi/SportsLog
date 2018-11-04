@@ -135,6 +135,7 @@ footer.footer {
 .leaderboard {
     padding: 10px;
     border-radius: 15px;
+    min-width: 460px;
 }
 
 .leaderboard-table {
@@ -207,13 +208,12 @@ footer.footer {
     background-color: #ab001f;
 }
 
-.pull-right{
-    text-align: right;
-}
+.pull-right{ text-align: right;  }
 
-.pull-left{
-    text-align: left;
-}
+.js-login-wrapper .pull-right form{  float: right; width: 100%;  }
+.js-login-wrapper .pull-left form{  float: left; width: 100%  }
+
+.pull-left{ text-align: left;  }
 
 .pull-up {
     vertical-align: top;
@@ -463,6 +463,10 @@ input[type=radio],input[type=checkbox] :hover {
 .my-img-style, .my-img-style-static{
     background-color: #eee;
     border: 3px dotted #cbcbcb;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 180px;
+}
 }
 
 .inputFile {
@@ -502,8 +506,44 @@ input[type=radio],input[type=checkbox] :hover {
     transition: border-bottom-width 0.1s linear
 }
 
+.homepage-icon-wrapper{
+    margin: 10px;
+    display: inline-block;
+    min-width: 850px;
+    width: 95%;
+}
 
+@media(max-width: 576px){
+    .homepage-icon-wrapper{
+        margin: 10px;
+        display: inline-block;
+        min-width: 230px;
+    }
+    .plus-padding-fix, .arrow-padding-fix{
+        padding-top: 0 !important;
+        margin-left:0 !important;
+        width: 100%;
+    }
+    .homepage-icon, .form-file-icon{ width: 95%; }
+    .form-file-icon select{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
+.plus-padding-fix, .arrow-padding-fix{
+    padding-top: 80px
+}
+
+.plus-padding-fix{  margin-left: -35px;  }
+.arrow-padding-fix{  margin-left: -45px;  }
+
+.homepage-icon{  min-width: 210px;  }
+.homepage-icon p{  min-width: 150px;  }
+
+.profile-text-line{
+    padding: 10px 0;
+}
 
 
 

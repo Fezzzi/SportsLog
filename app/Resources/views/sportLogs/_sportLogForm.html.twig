@@ -1,9 +1,9 @@
 <form class="form-inline js-new-sport-log-form" novalidate data-url="{{ path('sport_log_new') }}"
       style="margin-top: 50px; margin-bottom: 50px; margin-left: 25px; margin-right: 25px">
-    <table width="100%">
+    <table style="width: 100%">
         <tr>
             <td style="width: 100%">
-                <div class="form-group col-sm-5" align="right">
+                <div class="form-group col-sm-5 form-file-icon">
                     <label class="sr-only control-label required" for="sport_log_challenge">
                         Choose challenge
                     </label>
@@ -19,11 +19,11 @@
                     </select>
                 </div>
 
-                <div class="col-sm-2 h2" align="middle" style="margin-top: 12%">
+                <div class="col-sm-2 h2 centered" style="margin-top: 75px">
                     <strong>+</strong>
                 </div>
 
-                <div class="form-group col-sm-5" align="left">
+                <div class="form-group col-sm-5 pull-right form-file-icon">
                     <label class="sr-only control-label required" for="sport_log_sport">
                         Choose sport
                     </label>
@@ -41,8 +41,8 @@
             </td>
         </tr>
 
-        <tr >
-            <td class="form-group" align="center" width="100%">
+        <tr>
+            <td class="form-group centered" style="width: 100%">
                 <div style="padding-top: 20px; text-align: center">
                     <label for="file" class="btn btn-tri-state btn-made-sport" id="add-img" data-img="">
                         <span class="fa fa-plus" style="width: auto" id="add-img-fa"></span> ADD IMG
@@ -68,5 +68,5 @@
     </table>
 </form>
 
-<input type="file" name="file" id="file" class="inputFile" onchange="readIMG(this);" />
+<input type="file" name="file" id="file" class="inputFile"  style="display: none" onchange="readIMG(this);" />
 

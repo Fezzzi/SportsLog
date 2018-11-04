@@ -2,17 +2,17 @@
 {% block body %}
     <div class="row" style="margin-left: 5px; margin-right: 5px">
         <div class="js-profile-wrapper">
-            <table align="center" style="margin-top: 50px; margin-bottom: 50px">
+            <table style="margin-top: 50px; margin-bottom: 50px">
                 <tr>
-                    <td width="30%">
+                    <td style="width: 30%">
                         <div style="position: relative" class="pull-right">
                             <img src="{{ user_info.avatar }}" class="img-circle js-avatar my-img-style-static pull-right"
-                             width="250" height="250" style="z-index: 4" onerror="imageError(this)">
+                             width="250" height="250" style="z-index: 4" onerror="imageError(this)" alt="avatar">
                             {% if allow_edit %}
                                 <label for="file" class="btn" style="color: darkgray; position: absolute">
                                     <i class="fa fa-pencil"></i>
                                 </label>
-                                <input type="file" name="file" id="file" class="inputFile" onchange="readURL(this);" />
+                                <input type="file" name="file" id="file" class="inputFile" style="display: none" onchange="readURL(this);" />
                             {% endif %}
 
                             {% if user_info.tMemberGender == "fa fa-genderless" %}
@@ -48,100 +48,114 @@
 
                     <td style="padding-left: 50px">
                         <div style="vertical-align: top">
-                            <h3 style="display: inline">Team </h3>
-                            <h1 style="display: inline" class="highlighted"><strong>{{ user_info.username}},</strong></h1>
-                            {% if allow_edit %}
-                                <div class="btn" onclick="changeData('Username', 'text')" style="color: darkgray;
-                                    vertical-align: text-bottom"><i class="fa fa-pencil"></i></div>
-                            {% endif %}
-                            <h2></h2>
-
-                            <h3 style="display: inline"> also known as </h3>
-                            <h2 style="display: inline;" class="js-level highlighted"><strong>{{ '---' }}, </strong></h2>
-                            <h2></h2>
-
-                            <h3 style="display: inline">using e-mail address</h3>
-                            <h3 style="display: inline" class="highlighted"><strong>{{ user_info.emailCanonical }}</strong></h3>
-                            {% if allow_edit %}
-                                <div class="btn" onclick="changeData('Email','email')" style="color: darkgray; vertical-align: text-bottom">
-                                    <i class="fa fa-pencil"></i>
-                                </div>
-                            {% endif %}
-                            <h2></h2>
-
-                            <h3 style="display: inline">with nick </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ user_info.teammember }}</strong></h2>
-                            {% if allow_edit %}
-                            <div class="btn" onclick="changeData('Name 1','text')"
-                                 style="color: darkgray; vertical-align: text-bottom"><i class="fa fa-pencil"></i>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">Team </h3>
+                                <h1 style="display: inline" class="highlighted"><strong>{{ user_info.username}},</strong></h1>
+                                {% if allow_edit %}
+                                    <div class="btn" onclick="changeData('Username', 'text')" style="color: darkgray;
+                                        vertical-align: text-bottom"><i class="fa fa-pencil"></i></div>
+                                {% endif %}
                             </div>
-                            {% endif %}
-                            <h2></h2>
 
-                            <h3 style="display: inline">has so far completed</h3>
-                            <h2 style="display: inline" class="highlighted"><strong>{{ completed_challenges }}</strong></h2>
-                            <h3 style="display: inline"> out of </h3>
-                            <h2 style="display: inline" class="highlighted"><strong>{{ all_challenges }}</strong></h2>
-                            <h3 style="display: inline"> {% if (all_challenges != 1) %} active challenges.
-                                                         {% else %} challenge.
-                                                         {% endif %}
-                            </h3>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline"> also known as </h3>
+                                <h2 style="display: inline;" class="js-level highlighted"><strong>{{ '---' }}, </strong></h2>
+                            </div>
+
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">using e-mail address</h3>
+                                <h3 style="display: inline" class="highlighted"><strong>{{ user_info.emailCanonical }}</strong></h3>
+                                {% if allow_edit %}
+                                    <div class="btn" onclick="changeData('Email','email')" style="color: darkgray; vertical-align: text-bottom">
+                                        <i class="fa fa-pencil"></i>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">with nick </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ user_info.teammember }}</strong></h2>
+                                {% if allow_edit %}
+                                <div class="btn" onclick="changeData('Name 1','text')"
+                                     style="color: darkgray; vertical-align: text-bottom"><i class="fa fa-pencil"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">has so far completed</h3>
+                                <h2 style="display: inline" class="highlighted"><strong>{{ completed_challenges }}</strong></h2>
+                                <h3 style="display: inline"> out of </h3>
+                                <h2 style="display: inline" class="highlighted"><strong>{{ all_challenges }}</strong></h2>
+                                <h3 style="display: inline"> {% if (all_challenges != 1) %} active challenges.
+                                                             {% else %} challenge.
+                                                             {% endif %}
+                                </h3>
+                            </div>
                         </div>
                     </td>
                 </tr>
             </table>
-            <table align="left" style="margin-top: 50px; margin-bottom: 50px; width: 100%">
-                <tr style="width: 100%" valign="top">
+            <table style="margin-top: 50px; margin-bottom: 50px; width: 100%">
+                <tr style="width: 100%; vertical-align: middle">
                     <td style="width: 50%">
                         <h2><strong>STATS</strong></h2>
-                        <h2></h2>
                         <div class="stats" style="margin-left: 25px">
-                            <h3 style="display: inline">Team has earned </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ points }} </strong></h2>
-                            <h3 style="display: inline"> points until now</h3>
-                            <h2></h2>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">Team has earned </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ points }} </strong></h2>
+                                <h3 style="display: inline"> points until now</h3>
+                            </div>
 
-                            <h3 style="display: inline">and made sport </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ total_sport_logs }} </strong></h2>
-                            <h3 style="display: inline"> times in total.</h3>
-                            <h2></h2>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">and made sport </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ total_sport_logs }} </strong></h2>
+                                <h3 style="display: inline"> times in total.</h3>
+                            </div>
 
-                            <h3 style="display: inline"> {{ user_info.username}} has yet tried </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ completed_sports }} </strong></h2>
-                            <h3 style="display: inline"> of </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ all_sports }} </strong></h2>
-                            <h3 style="display: inline"> sports logged. </h3>
-                            <h2></h2>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline"> {{ user_info.username}} has yet tried </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ completed_sports }} </strong></h2>
+                                <h3 style="display: inline"> of </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ all_sports }} </strong></h2>
+                                <h3 style="display: inline"> sports logged. </h3>
+                            </div>
 
-                            <h3 style="display: inline"> {{ user_info.teammember|capitalize }}'s activity has brought</h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ achv_count }} </strong></h2>
-                            <h3 style="display: inline"> achievement{% if achv_count != 1 %}s{% endif %} out of </h3>
-                            <h2></h2>
-                            <h3 style="display: inline">which were </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ achv_types.bronze }} </strong></h2>
-                            <h3 style="display: inline"> bronze, </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ achv_types.silver }} </strong></h2>
-                            <h3 style="display: inline"> silver and </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ achv_types.gold }} </strong></h2>
-                            <h3 style="display: inline"> gold. </h3>
-                            <h2></h2>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline"> {{ user_info.teammember|capitalize }}'s activity has brought</h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ achv_count }} </strong></h2>
+                                <h3 style="display: inline"> achievement{% if achv_count != 1 %}s{% endif %} out of </h3>
+                            </div>
 
-                            <h3 style="display: inline">Most often completed challenge by this user</h3>
-                            <h2></h2>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">which were </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ achv_types.bronze }} </strong></h2>
+                                <h3 style="display: inline"> bronze, </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ achv_types.silver }} </strong></h2>
+                                <h3 style="display: inline"> silver and </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ achv_types.gold }} </strong></h2>
+                                <h3 style="display: inline"> gold. </h3>
+                            </div>
 
-                            <h3 style="display: inline">is </h3>
-                            <h2 style="display: inline" class="highlighted"><strong> {{ max_challenge }}.</strong></h2>
-                            <h2></h2>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">Most often completed challenge by this user</h3>
+                            </div>
 
-                            <h3 style="display: inline">The most enjoyed sport is</h3>
-                            <h2></h2>
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">is </h3>
+                                <h2 style="display: inline" class="highlighted"><strong> {{ max_challenge }}.</strong></h2>
+                            </div>
+
+                            <div class="profile-text-line">
+                                <h3 style="display: inline">The most enjoyed sport is</h3>
+                            </div>
 
                             <h2 style="display: inline" class="highlighted"><strong> {{ max_sport }} .</strong></h2>
                         </div>
                     </td>
 
                     <td style="vertical-align: top; padding-left: 50px; width: 40%">
-                        <h2 align="center"><strong>ACHIEVEMENTS</strong></h2>
+                        <h2 class="centered"><strong>ACHIEVEMENTS</strong></h2>
                         <div class="js-list-achvs">
 
                         </div>
@@ -169,7 +183,8 @@
                             <tr style="height: 60px">
                                 <td>
                                     <h2 style="display: inline" class="js-completed-challenge">
-                                        <img src="{{ asset('assets/images/log.png') }}" height="50px" width="50px" class="img-rounded">
+                                        <img src="{{ asset('assets/images/log.png') }}" alt="log"
+                                             height="50px" width="50px" class="img-rounded">
                                         <strong style="display: none; padding-top: 20px; padding-bottom: 20px">
                                             {{ challenge['name']|lower }}
                                         </strong>
@@ -207,7 +222,7 @@
                                     <i class="btn fa fa-times btn-min" onclick="deleteImg({{ image[1] }})"
                                        style="position: absolute; margin-left: -9px; margin-top: -9px"></i>
                                 {% endif %}
-                                <img src="{{ image[0] }}" width="170px" height="170px"
+                                <img src="{{ image[0] }}" width="170px" height="170px" alt="gallery-img"
                                      class="js-show-image my-img-style"
                                      onerror="imageError(this)">
                             </div>
@@ -358,7 +373,7 @@
                 swal({
                     html: `
                         <h3 style="margin-top: 0; margin-left: 30px; margin-right: 30px"><strong>Choose New Gender:</strong></h3>
-                        <table align="center" style="margin-bottom: 15px">
+                        <table style="margin: 0 auto 15px auto">
                             <tr>
                                 <td>
                                     <h4>` + $member + `</h4>

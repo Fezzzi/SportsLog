@@ -47,7 +47,7 @@
                     <span class="pull-right">
                         <a class="fa fa-envelope fa-lg navbar-item" href="{{ path('message') }}"></a>
                         <a href="{{ path('profile') }}" style="margin-left: 10px; margin-right: 10px">
-                            <img class="img-circle avatar" src="{{ app.user.avatar }}" onerror="imageError(this)">
+                            <img alt="avatar" class="img-circle avatar" src="{{ app.user.avatar }}" onerror="imageError(this)">
                         </a>
                         <a class="fa fa-sign-out fa-lg navbar-item" href="{{ path('fos_user_security_logout') }}"></a>
                     </span>
@@ -57,8 +57,8 @@
         <div class="container" style="padding-left: 0">
             <span class="pull-left"
                style="padding-right: 20px; padding-left: 20px; padding-top: 15px; padding-bottom: 15px" >
-                    <img height="50px" width="50px" style="padding-left: 0; background-color: #EEEEEE" onerror="imageError(this)"
-                         src="{{ asset('assets/images/logo.png') }}" class="img-circle">
+                    <img height="50" width="50" style="padding-left: 0; background-color: #EEEEEE" onerror="imageError(this)"
+                         alt="logo" src="{{ asset('assets/images/logo.png') }}" class="img-circle">
             </span>
             <span class="h1" style="vertical-align: middle; display: block"><strong>Sport Log</strong></span>
         </div>
@@ -99,7 +99,7 @@
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
-    <script src="{{ asset('assets/js/scripts/DeleteSwal.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/js/scripts/DeleteSwal.js') }}"></script>
     <script>
         let $tab;
         switch (location.pathname) {
