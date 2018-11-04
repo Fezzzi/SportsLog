@@ -3,6 +3,17 @@
 (function(window, $, Routing, swal) {
 
     class SportLogApp {
+
+        /**
+         *
+         * @param $wrapper
+         * @param $outer
+         * @param $Challenges
+         * @param $Sports
+         * @param $updateAchvsData
+         * @param $leaderboardData
+         * @param $userId
+         */
         constructor($wrapper, $outer, $Challenges, $Sports, $updateAchvsData, $leaderboardData, $userId) {
             this.ROWS = 10;
             this.$form = $wrapper;
@@ -87,6 +98,10 @@
             }
         }
 
+        /**
+         *
+         * @param key
+         */
         sortLeaderboard(key){
             let data = this.leaderboardData;
 
@@ -115,12 +130,20 @@
             this.generateLeaderboardBody(data)
         }
 
+        /**
+         *
+         * @param $data
+         */
         generateLeaderboardBody($data){
             const html = leaderboardTableBodyTemplate($data, this.leaderPage, this.$leaderboard, this.ROWS);
             const $template = $($.parseHTML(html));
             $('.js-leaderboard-table-body').append($template).hide().show('slow');
         }
 
+        /**
+         *
+         * @param e
+         */
         handleImageShow(e){
             let $span = $(e.currentTarget)[0];
             let img = '<img style="max-width: 100%; background-color: #EEEEEE" src="' + $span.dataset.img + '" ' +
@@ -144,6 +167,10 @@
             );
         }
 
+        /**
+         *
+         * @param increment
+         */
         updatePoints(increment) {
             let $pointElements =  this.$wrapper.find('.js-points');
             let points = 0;
@@ -164,7 +191,7 @@
 
             let levelData = this.getLevel(points);
             let $level = this.$wrapper.find('.js-level')[0];
-            if($level.innerHTML !== levelData[1] && $level.innerHTML !== "")
+            if($level.innerHTML !== levelData[1] && $level.innerHTML != "-")
                 swal({
                     title: $level.innerHTML + "  >>  " + levelData[1],
                     width: 'auto',
@@ -195,6 +222,11 @@
 
         }
 
+        /**
+         *
+         * @param points
+         * @returns {[*,*,*]}
+         */
         getLevel(points){
             let prelevel = null;
             for(let level in levels){
@@ -217,6 +249,11 @@
             }
         }
 
+        /**
+         *
+         * @param styleData
+         * @returns {string}
+         */
         static combineStyleData(styleData){
             let concatData = "";
             for(let data in styleData) {
@@ -231,6 +268,10 @@
                 background:-linear-gradient(`+ concatData + `)`;
         }
 
+        /**
+         *
+         * @param e
+         */
         handleSportLogDelete(e) {
             e.preventDefault();
 
@@ -241,6 +282,12 @@
             deleteSwal(entity, preConf);
         }
 
+        /**
+         *
+         * @param $link
+         * @returns {*|Promise.<TResult>}
+         * @private
+         */
         _deleteSportLog($link) {
             $link.addClass('text-danger');
             $link.find('.fa')
@@ -264,6 +311,10 @@
             })
         }
 
+        /**
+         *
+         * @param e
+         */
         handleNewFormSubmit(e) {
             e.preventDefault();
 
@@ -299,6 +350,12 @@
             });
         }
 
+        /**
+         *
+         * @param data
+         * @returns {Promise}
+         * @private
+         */
         _saveSportLog(data) {
             return new Promise((resolve, reject) => {
                 const url = Routing.generate('sport_log_new');
@@ -323,6 +380,10 @@
             });
         }
 
+        /**
+         *
+         * @private
+         */
         _displaySuccess(){
             const html = successTemplate();
             const $row = $($.parseHTML(html));
@@ -337,6 +398,11 @@
             },2000);
         }
 
+        /**
+         *
+         * @param errorData
+         * @private
+         */
         _mapErrorsToForm(errorData) {
             console.log(errorData);
             this._removeFormErrors();
@@ -353,16 +419,29 @@
             }
         }
 
+        /**
+         *
+         * @private
+         */
         _removeFormErrors() {
             this.$form.find('.js-field-error').remove();
             this.$form.find('.form-group').removeClass('has-error');
         }
 
+        /**
+         *
+         * @private
+         */
         _clearForm() {
             this._removeFormErrors();
             this.$form[0].reset();
         }
 
+        /**
+         *
+         * @param sportLog
+         * @private
+         */
         _addRow(sportLog) {
             const html = rowTemplate(sportLog, new Date(Date.now()));
             const $row = $($.parseHTML(html));
@@ -374,6 +453,11 @@
         }
     }
 
+    /**
+     *
+     * @param sportLog
+     * @param date
+     */
     const rowTemplate = (sportLog, date) => `
         <tr>
             <td class="col-md-3"><strong> ${ sportLog.challenge }</strong></td>
@@ -403,7 +487,6 @@
         </tr>
     `;
 
-
     const successTemplate = () => `
         <div class="log-success">
             <h3 class="alert alert-success">
@@ -412,6 +495,14 @@
         </div>
     `;
 
+    /**
+     *
+     * @param $data
+     * @param page
+     * @param $leaderboard
+     * @param ROWS
+     * @returns {string}
+     */
     const leaderboardTableBodyTemplate = ($data, page, $leaderboard, ROWS) => {
         let string = '';
         if(page > 0)
@@ -448,6 +539,11 @@
         return string;
     };
 
+    /**
+     *
+     * @param $data
+     * @returns {string}
+     */
     const innerData = ($data) => {
         let innerstring ='';
         for (let key in $data) {
