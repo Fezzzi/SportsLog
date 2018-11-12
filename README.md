@@ -6,7 +6,7 @@
 
 ### You can find project documentation there:
 
-- <a href="https://drive.google.com/open?id=1qHUEe5Vd_1yzTo6a5BKQ7CS5gpPWMFFu">sportslog.html</a>
+- <a href="SportsLog.svg">sportslog.svg</a>
 
 ### And the web page is currently running there:
 
